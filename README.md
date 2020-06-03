@@ -9,7 +9,6 @@
 ## Prerequisites
 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [nvm](https://github.com/nvm-sh/nvm#installation-and-update)
 - [yarn](https://yarnpkg.com/en/docs/install) or [npm](https://www.npmjs.com/get-npm)
 
 ## Running the example app
