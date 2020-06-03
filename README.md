@@ -14,7 +14,8 @@
 
 ## Running the example app
 
-This example is a simple nlp app. With little effort, you can customize the app appearance and data sources.
+This example is a simple nlp app. With little effort, you can customize the app appearance and data sources.  
+_Currently the first analyze takes longer as the proxy is connecting to the backend._
 
 ### Manual setup
 
