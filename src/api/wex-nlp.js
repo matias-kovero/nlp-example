@@ -1,3 +1,4 @@
+import config from '../config.json';
 // Route requests to a dummy client since CP4D doesn't support CORS
 const host = `${window.location.href}proxy`; // Check setupProxy.js
 const collectionId = process.env.REACT_APP_COLLECTION_ID;
@@ -23,7 +24,7 @@ const analyze = async(body) => {
         },
         body: JSON.stringify({
           fields: {
-            ALLA: body
+            [config.apiField]: body
           },
           metadata: {
             languages: ['fi']

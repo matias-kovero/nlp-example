@@ -12,10 +12,9 @@ import TextArea from './TextArea';
 import Legends from './Legends';
 import Button from './Button';
 
-const analyzeText = async(text, colors) => {
+const analyzeText = async(text, colors, apiField) => {
   var response = await nlp.analyze(text);
-  var location = Object.keys(response.enriched);
-  var data = response.enriched[location][0].annotations; // Making asumptions it will be on the 0 element
+  var data = response.enriched[apiField][0].annotations; // Making asumptions it will be on the 0 element
   // Array contains the whole sentence we don't need it.
   var cleaned = data.filter(ann => ann.text === ann.properties.facetval);
   var facetTypes = [...new Set(cleaned.map(x => x.type))];
@@ -32,7 +31,7 @@ function NlpApp(props) {
 
   useEffect(() => {
     if(isLoading) {
-      analyzeText(text, props.colors).then((data) => {
+      analyzeText(text, props.colors, props.apiField).then((data) => {
         setResult(data.results);
         setFacetTypes(data.types);
         setLoading(false);
@@ -41,7 +40,7 @@ function NlpApp(props) {
         setLoading(false)
       });
     }
-  }, [isLoading, text, props.colors]);
+  }, [isLoading, text, props.colors, props.apiField]);
 
 
   const handleClick = (e) => {

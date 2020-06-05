@@ -1,4 +1,5 @@
 {
+  "apiField": "remember_to_change",
   "sentences": [
     "Feel free to add as many sentences as needed.",
     "Remember to have enough *legendColors* as your api returns labels",

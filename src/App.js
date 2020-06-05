@@ -26,7 +26,8 @@ function App() {
           textColor={config.appColors.textColor} 
           formColor={config.appColors.formColors} 
           sentences={config.sentences} 
-          colors={config.legendColors} 
+          colors={config.legendColors}
+          apiField={config.apiField}
         />
       </header>
     </div>

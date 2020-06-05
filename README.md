@@ -50,29 +50,30 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
       ```js
       import logo from './logo.png'; // ./imgname.imgtype
       ```
-   - Update sample sentences & colors in `/src/config.json`
+   - Update apiField to your collectionId payload field in `/src/config.json`
       ```yaml
       {
-         "sentences": [
-            "Feel free to add as many sentences as needed.",
-            "Remember to have enough *legendColors* as your api returns labels",
-            "Give a try on *appColors*"
-         ],
-         "legendColors": [
-            "#007bff",
-            "#28a745",
-            "#17a2b8",
-            "#ffc107",
-            "#dc3545",
-            "#fd7e14"
-         ],
-         "appColors": {
-            "background": "#282c34",
-            "textColor": "#FFFFFF",
-            "navbarColor": "#343a40",
-            "navbarDark": true,
-            "formColors": "#343a40"
-         }
+        "apiField": "remember_to_change"
+        "sentences": [
+          "Feel free to add as many sentences as needed.",
+          "Remember to have enough *legendColors* as the maxium labels your api returns",
+          "Give a try on *appColors*"
+        ],
+        "legendColors": [
+          "#007bff",
+          "#28a745",
+          "#17a2b8",
+          "#ffc107",
+          "#dc3545",
+          "#fd7e14"
+        ],
+        "appColors": {
+          "background": "#282c34",
+          "textColor": "#FFFFFF",
+          "navbarColor": "#343a40",
+          "navbarDark": true,
+          "formColors": "#343a40"
+        }
       }
       ```
 5. Build the React app:
