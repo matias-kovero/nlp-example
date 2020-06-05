@@ -1,0 +1,22 @@
+{
+  "sentences": [
+    "Feel free to add as many sentences as needed.",
+    "Remember to have enough *legendColors* as your api returns labels",
+    "Give a try on *appColors*"
+  ],
+  "legendColors": [
+    "#007bff",
+    "#28a745",
+    "#17a2b8",
+    "#ffc107",
+    "#dc3545",
+    "#fd7e14"
+  ],
+  "appColors": {
+    "background": "#282c34",
+    "textColor": "#FFFFFF",
+    "navbarColor": "#343a40",
+    "navbarDark": true,
+    "formColors": "#343a40"
+  }
+}

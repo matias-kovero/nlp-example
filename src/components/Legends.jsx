@@ -6,7 +6,7 @@ function Legends(props) {
   return(
     <Col sm={8} className='text-left mb-3 pl-0'>
       {props.data.map((type, i) => 
-      <Badge className='mr-2' pill variant={props.colors[i]} key={i}>{type}</Badge>
+      <Badge className='mr-2' pill style={{backgroundColor: props.colors[i]}} key={i}>{type}</Badge>
     )}
     </Col>
   )
