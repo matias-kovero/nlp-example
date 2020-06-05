@@ -25,9 +25,6 @@ const analyze = async(body) => {
         body: JSON.stringify({
           fields: {
             [config.apiField]: body
-          },
-          metadata: {
-            languages: ['fi']
           }
         })
       };
