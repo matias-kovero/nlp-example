@@ -28,7 +28,7 @@ function TextBox(props) {
       <Form.Control 
         className='shadow-none'
         as="textarea" 
-        rows="4" 
+        rows="6" 
         value={props.value} 
         onChange={props.onChange} 
         style={{backgroundColor: props.bg, color: props.color, borderColor: borders}}

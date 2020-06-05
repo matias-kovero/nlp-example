@@ -21,10 +21,11 @@ const buildResultsArea = (highlights, text) => {
       }
 
     })
+    console.log(textArray);
     results = textArray.map((textElement, index) => {
-      let className = textElement.isHighlight ? 'text-' + textElement.color : ''
+      let colorCode = textElement.isHighlight ? textElement.color : null
       return (
-        <span key={index} className={className}>{textElement.text}</span>
+        <span key={index} style={{color: colorCode}}>{textElement.text}</span>
       )
     })
     return results;
@@ -63,11 +64,14 @@ function ResultBox(props) {
   }, [data, text]);
 
   return(
-    <div className='output form-control form-group text-white text-left overflow-auto' style={{backgroundColor: props.bg, color: props.color, height: '103px', borderColor: borders }}>
+    <div 
+      className='output form-control form-group text-white text-left overflow-auto' 
+      style={{backgroundColor: props.bg, color: props.color, height: '156px', borderColor: borders }}>
       {(result && result.length > 0) ? <div className='results-text'>
         {result}
       </div> : <div className='results-text'>{text}</div>}
     </div> 
   )
 }
+
 export default ResultBox;
