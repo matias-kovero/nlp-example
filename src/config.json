@@ -1,5 +1,4 @@
 {
-  "apiField": "remember_to_change",
   "sentences": [
     "Feel free to add as many sentences as needed.",
     "Remember to have enough *legendColors* as your api returns labels",
@@ -11,7 +10,9 @@
     "#17a2b8",
     "#ffc107",
     "#dc3545",
-    "#fd7e14"
+    "#fd7e14",
+    "#6610f2",
+    "#e83e8c"
   ],
   "appColors": {
     "background": "#282c34",

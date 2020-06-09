@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 
-.App-header {
+.App-body {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -20,6 +20,43 @@
 
 .App-link {
   color: #61dafb;
+}
+.split {
+  height: 50%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.top {
+  top: 0;
+}
+.bottom {
+  bottom: 0;
+}
+.absolute-bottom {
+  position: absolute !important;
+  bottom: 0 !important;
+}
+.custom-pill {
+  cursor: pointer;
+}
+.result-table {
+  height: 69%;
+  overflow: hidden scroll;
+  min-height: 15em;
+}
+.hide-scroll {
+  padding-right: 17px !important;
+  padding-bottom: 17px !important;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll::-webkit-scrollbar {
+  display: none !important;
 }
 
 @keyframes App-logo-spin {

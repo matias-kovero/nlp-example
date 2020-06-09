@@ -5,12 +5,12 @@ import config from './config.json';
 
 import Navbar from 'react-bootstrap/Navbar';
 import NlpApp from './components/NlpApp';
+import Container from 'react-bootstrap/Container';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header" style={{backgroundColor: config.appColors.background}}>
-        <Navbar variant={config.appColors.navbarDark ? 'dark' : 'light'} style={{backgroundColor: config.appColors.navbarColor}} fixed='top'>
+    <Container fluid className='App-body' style={{backgroundColor: config.appColors.background}}>
+      <Navbar variant={config.appColors.navbarDark ? 'dark' : 'light'} style={{backgroundColor: config.appColors.navbarColor}} fixed='top'>
           <Navbar.Brand href="#home">
             <img
               alt=""
@@ -27,11 +27,11 @@ function App() {
           formColor={config.appColors.formColors} 
           sentences={config.sentences} 
           colors={config.legendColors}
-          apiField={config.apiField}
+          apiField={process.env.REACT_APP_COLLECTION_FIELD}
         />
-      </header>
-    </div>
+    </Container>
   );
 }
 
 export default App;
+//<div className="App-body" style={{backgroundColor: config.appColors.background}}>

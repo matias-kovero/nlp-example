@@ -3,17 +3,36 @@ import React, { useState, useEffect } from 'react';
 const buildResultsArea = (highlights, text) => {
     let results = null;
     let textArray = [];
+
+    highlights = highlights.sort((a,b) => {
+      return a.endIndex - b.endIndex === 0 ? b.beginIndex - a.beginIndex : a.endIndex - b.endIndex;
+    });
+
+    let highestInColor = -1;
     highlights.forEach((highlight, index) => {
+      let draw = highlight.endIndex > highestInColor;
+      let crop = highestInColor >= highlight.beginIndex; // We need to crop
+
       if (index === 0) { //before the first highlight
         textArray = textArray.concat({ text: text.substring(0, highlight.beginIndex), isHighlight: false });
       }
+
       //all the hightlights
-      if (index !== 0) { //don't do this for the first word
+      if (index !== 0 && highlights[index - 1].endIndex <= highlight.beginIndex) { 
+        // We add to the array "text string" last highlight endIndex, this higlight beginIndex 
         textArray = textArray.concat({ text: text.substring(highlights[index - 1].endIndex, highlight.beginIndex), isHighlight: false });
       }
-      textArray = textArray.concat({ text: ' ', isHighlight: false });
-      textArray = textArray.concat({ text: text.substring(highlight.beginIndex, highlight.endIndex), isHighlight: true, color: highlight.color });
-
+      // We create a space.
+      //textArray = textArray.concat({ text: ' ', isHighlight: false });
+      if(draw) {
+        textArray = textArray.concat({ 
+          text: text.substring(crop ? highestInColor : highlight.beginIndex, highlight.endIndex),
+          isHighlight: true, 
+          color: highlight.color
+        });
+        highestInColor = highlight.endIndex;
+      }
+      // We add current highlight
 
       if (index === highlights.length - 1) { //after the last highlight
         textArray = textArray.concat({ text: ' ', isHighlight: false });
@@ -21,9 +40,9 @@ const buildResultsArea = (highlights, text) => {
       }
 
     })
-    console.log(textArray);
+
     results = textArray.map((textElement, index) => {
-      let colorCode = textElement.isHighlight ? textElement.color : null
+      let colorCode = textElement.isHighlight ? textElement.color : null;
       return (
         <span key={index} style={{color: colorCode}}>{textElement.text}</span>
       )
@@ -52,16 +71,14 @@ function ColorLuminance(hex, lum) {
 }
 
 function ResultBox(props) {
-  const [data, setData] = useState(props.data);
   const [result, setResult] = useState([]);
   const [text, setText] = useState(props.text);
   let borders = ColorLuminance(props.bg, -0.2);
+
   useEffect(() => {
-    if(data) {
-      let colorText = buildResultsArea(data, text);
-      setResult(colorText);
-    } else { setData(null); setText(null); }
-  }, [data, text]);
+    let colorText = buildResultsArea(props.data, text);
+    setResult(colorText); 
+  }, [props.data, text]);
 
   return(
     <div 

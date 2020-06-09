@@ -38,11 +38,13 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
 
    ```
    REACT_APP_COLLECTION_ID=REPLACE_ME  
+   REACT_APP_COLLECTION_FIELD=REPLACE_ME  
    REACT_APP_NAME=REPLACE_ME   
    ```
 
    1. `REACT_APP_COLLECTION_ID` this will be used in your request to forward them to the right collection.
-   2. `REACT_APP_NAME` just to personalize the app. This will appear on the navbar and the page title.  
+   2. `REACT_APP_COLLECTION_FIELD` this will be the payload field name that contains the data.
+   3. `REACT_APP_NAME` just to personalize the app. This will appear on the navbar and the page title.  
 
 5. Personalize the app
    - Replace the default image in `/src/logo.png` (`.png` and `.svg` are valid)
@@ -50,13 +52,12 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
       ```js
       import logo from './logo.png'; // ./imgname.imgtype
       ```
-   - Update apiField to your collectionId payload field in `/src/config.json`
+   - Update values in `/src/config.json` defaults are:
       ```yaml
       {
-        "apiField": "remember_to_change"
         "sentences": [
           "Feel free to add as many sentences as needed.",
-          "Remember to have enough *legendColors* as the maxium labels your api returns",
+          "If you get transparent "legends" you need to add more *legendColors*",
           "Give a try on *appColors*"
         ],
         "legendColors": [
@@ -65,7 +66,9 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
           "#17a2b8",
           "#ffc107",
           "#dc3545",
-          "#fd7e14"
+          "#fd7e14",
+          "#6610f2",
+          "#e83e8c"
         ],
         "appColors": {
           "background": "#282c34",
@@ -102,3 +105,5 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
 8. Go to [localhost:3000](localhost:3000) in your browser. If everything is working, you should see something like this:
 
    ![Example app](./docs/example-app.png)
+Example on filters:
+     ![Example filter](./docs/example-filter.gif)
