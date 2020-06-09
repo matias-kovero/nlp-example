@@ -4,6 +4,7 @@
 - [Prerequisites](#prerequisites)
 - [Running the example app](#running-the-example-app)
   * [Manual setup](#manual-setup)  
+- [Preview](#example-on-filters)
 <!-- tocstop -->  
   
 ## Prerequisites
@@ -105,5 +106,5 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
 8. Go to [localhost:3000](localhost:3000) in your browser. If everything is working, you should see something like this:
 
    ![Example app](./docs/example-app.png)
-Example on filters:
-     ![Example filter](./docs/example-filter.gif)
+#### Example on filters
+   ![Example filter](./docs/example-filter.gif)
