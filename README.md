@@ -35,8 +35,7 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
 
 4. Create an environment file
 
-   Copy the `.env` file in your root to `.env.local` file also to your root, and populate the following values:
-
+   Copy the `.env` file in your root to `.env.local`, and populate the following values on `.env.local`:
    ```
    REACT_APP_COLLECTION_ID=REPLACE_ME  
    REACT_APP_COLLECTION_FIELD=REPLACE_ME  
