@@ -58,6 +58,7 @@ function NlpApp(props) {
 
   const randomText = (e) => {
     e.preventDefault();
+    setFacetTypes([]); // Remove legends
     let len = props.sentences.length;
     let getNext = rngSentence + 1;
     setText(props.sentences[rngSentence]);
@@ -66,7 +67,7 @@ function NlpApp(props) {
 
   const handleChange = (e) => {
     setText(e.target.value);
-    setFacetTypes([]);
+    setFacetTypes([]); // Remove legends
   };
 
   const toggleFilter = (value) => {
