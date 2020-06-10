@@ -72,6 +72,7 @@ function ColorLuminance(hex, lum) {
 
 function ResultBox(props) {
   const [result, setResult] = useState([]);
+  // eslint-disable-next-line
   const [text, setText] = useState(props.text);
   let borders = ColorLuminance(props.bg, -0.2);
 
