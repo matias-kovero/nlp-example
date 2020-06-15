@@ -24,7 +24,7 @@ const analyzeText = async(text, colors, apiField) => {
 
 function NlpApp(props) {
   const [isLoading, setLoading] = useState(false);
-  const [text, setText] = useState('Write text here and press analyze...');
+  const [text, setText] = useState('Write text here and press analyze..');
   const [apiData, setApiData] = useState([]);
   const [results, setResult] = useState([]);
   const [facetTypes, setFacetTypes] = useState([]);

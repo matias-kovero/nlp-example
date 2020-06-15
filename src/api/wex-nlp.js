@@ -20,7 +20,6 @@ const analyze = async(body) => {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
-          //'Authorization': `Basic ${TOKEN}`// moved to setupProxy.js
         },
         body: JSON.stringify({
           fields: {
@@ -32,7 +31,6 @@ const analyze = async(body) => {
       .then(handleErrors)
       .then(response => resolve(response.json()))
       .catch(error => reject(error))
-      //resolve(data);
     } catch (error) {
       reject(error.message);
     }

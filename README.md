@@ -3,8 +3,10 @@
 <!-- toc -->
 - [Prerequisites](#prerequisites)
 - [Running the example app](#running-the-example-app)
-  * [Manual setup](#manual-setup)  
-- [Preview](#example-on-filters)
+  * [Setup](#setup)  
+- [Deploying the app](#deploying-the-app)
+  * [Bluemix](#bluemix)
+- [Preview](#preview)
 <!-- tocstop -->  
   
 ## Prerequisites
@@ -17,7 +19,7 @@
 This example is a simple nlp app. With little effort, you can customize the app appearance and data sources.  
 _Currently the first analyze takes longer as the proxy is connecting to the backend._
 
-### Manual setup
+### Setup
 
 1. Install [Yarn](https://yarnpkg.com/lang/en/docs/install), as it is required build the components locally.
 
@@ -27,7 +29,7 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
    git clone https://github.com/matias-kovero/nlp-example.git
    ```
 
-3. Navigate into the project and install component dependencies
+3. Navigate into the project and install project dependencies
 
    ```
    cd nlp-example && yarn
@@ -87,12 +89,11 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
 
 6. Setup the proxy
 
-   - Create a `.server-env` file to your project root with the following values:
+   Create `.server-env` file to your project root with the following values:
      ```
      BASE_URL=REPLACE_ME
      TOKEN=REPLACE_ME
      ```
-     where:
      - `BASE_URL` is the protocol + host + port of the location that CP4D UI is hosted (ex. `https://my-cluster-name.com:443`)
      - `TOKEN` is the Authorization token used to authorize api requests.
 
@@ -105,5 +106,40 @@ _Currently the first analyze takes longer as the proxy is connecting to the back
 8. Go to [localhost:3000](localhost:3000) in your browser. If everything is working, you should see something like this:
 
    ![Example app](./docs/example-app.png)
-#### Example on filters
-   ![Example filter](./docs/example-filter.gif)
+
+
+## Deploying the app
+
+### Bluemix
+Before you begin, [download and install the IBM Cloud CLI.](https://cloud.ibm.com/docs/cli?topic=cli-getting-started)
+1. Create `manifest.yml` on root:
+    ```YAML
+    ---
+    applications:
+    - name: your_application_name
+      memory: 512M
+      disk_quota: 512M
+      buildpacks: 
+        - nodejs_buildpack
+      command: node server.js
+    ```
+    _More info about manifest.yml [here.](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html)_  
+
+2. If you are already logged in with IBM Cloud CLI, skip to section 4, else login with:
+    ```
+    ibmcloud login --sso
+    ```
+3. Target Cloud Foundry  
+    ```
+    ibmcloud target --cf
+    ```
+4. Push and deploy the application
+    ```
+    ibmcloud cf push
+    ```
+5. Access your app by browsing to the app URL.  
+
+## Preview
+
+  1. Use filters by clicking the legends.
+  ![Example filter](./docs/example-filter.gif)

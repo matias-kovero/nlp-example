@@ -9,7 +9,7 @@ app.get('/', async (req, res) => {
 });
 proxy(app);
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
-  console.log('Application running at http://localhost:%s/', port);
+  console.log('Application running at http://localhost:%s', port);
 });
